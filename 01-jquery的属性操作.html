@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<script src="jquery-1.12.4.js"></script>
+	<script>
+		$(function(){
+			
+			//原生获取属性的操作
+//			var Box1 = document.getElementById('box');
+//			
+//			console.log(Box1.id);
+//          jQuery获取属性的操作
+          //添加一个属性
+//        $('#box').attr('title','盒子')
+//		  })
+		//添加多个属性
+		 $('#box').attr({
+		    alt:'你好',
+		    title:'盒子',
+		    style:'background-color:red;width:300px;height:300px;'
+        })
+		 
+		 console.log($('#box').attr('title'));
+	    })
+		
+		
+	</script>
+	<body>
+		<div id="box">box</div>
+	</body>
+</html>

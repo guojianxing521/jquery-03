@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			#oUl {
+				width: 300px;
+				height: 300px;
+				border: 1px solid black;
+			}
+			#box{
+				width:100;
+				height: 100;
+				background: red;
+			}
+			p{
+				margin: 0;
+			}
+		</style>
+	</head>
+	<body>
+		<input type="button" value="按钮"/>
+		<div id="box">
+			<p>ppp</p>
+			<span>span</span>
+		</div>
+			<ul id="oUl">
+			<li>这是第1个li添加的留言<a href="javascript:;">删除</a></li>
+			<li>这是第2个li添加的留言<a href="javascript:;">删除</a></li>
+			<li>这是第3个li添加的留言<a href="javascript:;">删除</a></li>
+			<li>这是第4个li添加的留言<a href="javascript:;">删除</a></li>
+			<li>这是第5个li添加的留言<a href="javascript:;">删除</a></li>
+			<li>这是第6个li添加的留言<a href="javascript:;">删除</a></li>
+		</ul>
+		<script src="jquery-1.12.4.js"></script>
+		<script>
+			//不能绑定多个事件，不会发生事件覆盖
+//			$('input').click(function(){
+//				console.log('点击了');
+//			})
+//			$('input').mouseover(function(){
+//				console.log('移上了');
+//			})
+
+//            支持绑定多个事件,缺点：不支持动态动态创建出来的元素，不支持事件委托
+
+//       $('input').bind('click mouseover',function(){
+//       	console.log('触发了')
+//       })
+//       $('input').bind({
+//       	click:function(){
+//       		console.log('点击了')
+//       	},
+//       	mouseover:function(){
+//       		console.log('移上了')
+//       	}
+//       })
+
+//    第三种方式
+
+    //第一个参数，委托元素，第二个参数：委托事件，第三个元素：事件处理函数，传入e
+//  $('#oUl').delegate('a','click',function(e){
+//  	
+//  	console.log(e.target);
+//  	
+//  	//删除事件源的父亲
+//  	$(e.target).parent().remove();
+//  	
+//  })
+
+//第四种方式
+
+      //1
+//    $('#box').on('click',function(){
+//    	
+//    	console.log('点击了');
+//    })
+//     2
+//   $('#box').on('click mouseover',function(){
+//   	
+//   	console.log('触发了');
+//   })
+
+     //3
+//   $('#box').on({
+//   	click:function(){
+//   		console.log('点击了');
+//   	},
+//   	mouseover:function(){
+//   		console.log('移上了');
+//   	}
+//   })
+    //4
+//  
+//  var obj={
+//  	name:'zhangsan',
+//  	age:25
+//  }
+//  //第二个参数和第三个参数可以不写，委托元素和传入的数据
+//  //注意data
+//  $('#box').on('click','p',obj,function(e){
+//  	console.log('点击了p');
+//  	console.log('从外部获取的元素'+e.data);//e.data[0];
+//  	console.log(e.data);//e.da
+//  })
+    
+    //注意加引号  注意逗号  注意写e
+    $('#box').on({
+    	'click':function(e){
+    		console.log('这是一个'+e.type+'事件');
+    	},
+    	'mouseover':function(e){
+    		console.log('移上了');
+    	},
+    	'mouseout':function(e){
+    		console.log('外部获取的元素'+e.data[0]);
+    	}
+    },'p',['red','green'])
+    
+		</script>
+	</body>
+</html>

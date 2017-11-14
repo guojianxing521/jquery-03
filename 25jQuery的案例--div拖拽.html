@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			#box {
+				width: 100px;
+				height: 100px;
+				background: red;
+				position: absolute;
+				left: 100px;
+				top: 100px;
+			}
+		</style>
+	</head>
+	<body style="height: 2000px;">
+		<div id="box"></div>
+	</body>
+	<script src="jquery-1.12.4.js"></script>
+	<script type="text/javascript">
+		
+		
+		/*var oBox = document.getElementById("box");
+		
+		oBox.onmousedown = function(e) {
+			e = e || event;
+			var scrollT = document.documentElement.scrollTop || document.body.scrollTop;
+			
+			var disX = e.clientX - this.offsetLeft;
+			var disY = e.clientY - this.offsetTop + scrollT;
+			
+			document.onmousemove = function(e) {
+				e = e || event;
+				
+				var scrollT = document.documentElement.scrollTop || document.body.scrollTop;
+				
+				oBox.style.left = e.clientX - disX + "px";
+				oBox.style.top = e.clientY - disY + scrollT+ "px";
+			}
+			document.onmouseup = function() {
+				document.onmousemove = null;
+			}
+			
+		}*/
+		
+		
+//		$("#box").mousedown(function(e){
+//			
+//			var disX = e.offsetX;//相对于被点击元素的左上角距离，也就是那段固定距离
+//			var disY = e.offsetY;//和offset不一样，永远相对于文档。position相对于已经定位的父盒子，只能获取
+//			
+//			$(document).on({
+//				"mousemove":function(e){
+//					$("#box").css({
+//						left:e.pageX - disX,//pageX相对于页面的00坐标
+//						//clientX可视区域的左上角
+//						top:e.pageY - disY
+//					})
+//				},
+//				"mouseup":function(){
+//					$(this).off("mousemove");
+//				}
+//			})
+//			
+//		})
+
+//
+        $('#box').mousedown(function(e){
+        	
+        	var disX = e.offsetX;
+        	var disY = e.offsetY;
+        	
+        	$(document).mousemove(function(e){
+        		$("#box").css({
+						left:e.pageX - disX,//pageX相对于页面的00坐标
+						//clientX可视区域的左上角
+						top:e.pageY - disY
+					})
+//      		$('#box').css(
+//      			'left':e.pageX - disX,
+//      			top: e.pageY - disY
+//      		)
+        		
+        	})
+        		
+        	$(document).mouseup(function(){
+        		
+        		$(this).off();
+        	})
+
+        	
+         })
+		
+	</script>
+</html>

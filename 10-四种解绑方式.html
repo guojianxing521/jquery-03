@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			#box{
+				width: 100px;
+				height: 100px;
+				background: red;
+			}
+		</style>
+	</head>
+	<script src="jquery-1.12.4.js"></script>
+	<body>
+		<div id="box">
+			<p>pppppp</p>
+		</div>
+		
+		<script>
+			//第一种解绑
+//			$('#box').click(function(){
+//				console.log('点击了');
+//			})
+//			$('#box').mouseover(function(){
+//				console.log('移上了');
+//			})
+//			
+//			$('#box').off('click');//不加参数全部取消
+           //第二种解绑
+//         $('#box').bind('click',function(){
+//         	console.log('点击了');
+//         })
+//          $('#box').mouseover('click',function(){
+//         	console.log('移上了');
+//         })
+//        $('#box').unbind('click');//不加参数全部取消
+      //第三种解绑方式
+//    $('#box').delegate({
+//    	'click':function(){
+//    		console.log('点击了');
+//    	}
+//    })//不支持这种格式
+  //必须有三个参数，事件委托
+//    $('#box').delegate('p','click mouseover',function(){
+//    	console.log('点击了');
+//    })
+//    $('#box').undelegate('mouseover');//不加参数全部取消
+
+//不仅支持事件委托，还支持动态创建元素
+
+
+    $('#box').on('click',function(){
+    	console.log('点击了');
+    })
+    
+    $('#box').off();
+		</script>
+	</body>
+</html>
